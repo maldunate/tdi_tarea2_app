@@ -20,7 +20,8 @@ bundler_args: --binstubs=./bundler_stubs
 #after_success:
 deploy:
   provider: heroku
-#  api_key: 437a311a-23c6-4303-bb04-4b415dc40f32
+  api_key: 
+    secure: "YOUR ENCRYPTED API KEY"
   app: tdi_tarea2_app
 # uncomment and edit the following line if your project needs to run something other than `rake`:
 # script: bundle exec rspec spec
