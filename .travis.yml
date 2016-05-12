@@ -2,21 +2,21 @@ language: ruby
 services:
   - postgresql
 rvm:
-  - 2.2.0
+  - 2.3.0
 env:
   - DB=postgresql
-#before_script:
-#  - psql -c 'create database T2_development;' -U postgres
-#  - psql -c 'create database T2_testing;' -U postgres
-#  - psql -c 'create database T2_production;' -U postgres   
-#script: 
-#  - bundle exec rake db:create --trace
-#  - bundle exec rake db:migrate --trace
-#  - RAILS_ENV=test bundle exec rake db:create --trace
-#  - RAILS_ENV=test bundle exec rake db:migrate --trace
-#  - bundle exec rake db:test:prepare
+before_script:
+  - psql -c 'create database tdi2_production;' -U postgres
+  - psql -c 'create database tdi2_development;' -U postgres
+  - psql -c 'create database tdi2_testing;' -U postgres   
+script: 
+  - bundle exec rake db:create --trace
+  - bundle exec rake db:migrate --trace
+  - RAILS_ENV=test bundle exec rake db:create --trace
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
 #  - bundle exec rspec spec/
-#bundler_args: --binstubs=./bundler_stubs
+bundler_args: --binstubs=./bundler_stubs
 #after_success:
 deploy:
   provider: heroku

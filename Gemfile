@@ -46,5 +46,7 @@ group :development do
 
   gem 'activemodel'
   gem 'activemodel-associations'
+  gem 'rails_12factor', group: :production
+  
 end
 
