@@ -1,6 +1,8 @@
 == README
 
-TALLER DE INTEGRACION - TAREA 2 - MANUEL ALDUNATE
+TALLER DE INTEGRACION - TAREA 2 - MANUEL 
+
+TRAVIS : !https://travis-ci.org/maldunate/tdi_tarea2_app.svg?branch=master!:https://travis-ci.org/maldunate/tdi_tarea2_app
 
 Things you may want to cover:
 
