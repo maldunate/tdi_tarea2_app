@@ -25,6 +25,25 @@ require 'sinatra'
 		end
 	end
 
+	def requestWeb(typeOfRequest, uri)
+		headers = {}
+		query = Hash.new
+		response
+
+		if typeOfRequest.start_with?('GET')
+			response =HTTParty.get(uri, :query => query, :headers => headers)
+			return false unless is_json?(response.body.to_s)
+		else
+			return false
+		end
+
+		if(response.code < 300)
+			return JSON.parse(response.body)
+		else
+			return false
+		end
+	end
+
 	def arrayPosts(tag, access_token)
 		response = requestWeb('GET', 'https://api.instagram.com/v1/tags/'<<tag.to_s<<'/media/recent'<<'?access_token='<<access_token.to_s)
 		if(response == false)
@@ -67,26 +86,6 @@ require 'sinatra'
 			return count
 		end
 	end
-
-	def requestWeb(typeOfRequest, uri)
-		headers = {}
-		query = Hash.new
-		response
-
-		if typeOfRequest.start_with?('GET')
-			response =HTTParty.get(uri, :query => query, :headers => headers)
-			return false unless is_json?(response.body.to_s)
-		else
-			return false
-		end
-
-		if(response.code < 300)
-			return JSON.parse(response.body)
-		else
-			return false
-		end
-	end
-
 
 	def is_json?(foo)
 	    begin
