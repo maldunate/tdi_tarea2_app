@@ -22,5 +22,4 @@ deploy:
   app: frozen-dusk-44163
   on:
     repo: maldunate/tdi_tarea2_app
-    branch: master
 after_success: coveralls

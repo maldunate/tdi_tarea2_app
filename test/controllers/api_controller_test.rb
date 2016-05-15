@@ -10,17 +10,6 @@ class ApiControllerTest < ActionController::TestCase
 		get :findTag, {:params => {:tag => 'santiago', :access_token => '2019746130.59a3f2b.86a0135240404ed5b908a14c0a2d9402'}}
 		assert_equal 400, response.status
 	end
-		
-	#Probar Método Request Web
-	test "requestWeb return content or false" do
-		#Retorna False cuando el llamado es erroneo. Con método incorrecto
-		assert_equal false, @controller.send(:requestWeb, 'POST', 'http://google.com'), "No recibe POST"
-		#Retorna False cuando el llamado es erroneo. Con URL NO Json
-		assert_equal false, @controller.send(:requestWeb, 'GET', 'http://google.com'), "No recibe POST"
-		#Retorna Json Content cuando los parámetros están correctos.
-		assert_not_equal false,  @controller.send(:requestWeb, 'GET', 'https://api.instagram.com/v1/tags/piscina?access_token=2019746130.59a3f2b.86a0135240404ed5b908a14c0a2d9402')
-	end
-
 
 	#Probar Método tagCount
 	test "tagCount return int or false" do 
