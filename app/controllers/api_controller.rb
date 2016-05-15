@@ -56,12 +56,12 @@ class ApiController < ApplicationController
 	end
 
 	def tagCount(tag, access_token)
-		respuesta = requestWeb('GET', 'https://api.instagram.com/v1/tags/'<<tag.to_s<<'?access_token='<<access_token.to_s)
-		if(respuesta==false)
+		response = requestWeb('GET', 'https://api.instagram.com/v1/tags/'<<tag.to_s<<'?access_token='<<access_token.to_s)
+		if(response==false)
 			return false
 		else
-			cantidad = respuesta["data"]["media_count"].to_i
-			return cantidad
+			count = response["data"]["media_count"].to_i
+			return count
 		end
 	end
 

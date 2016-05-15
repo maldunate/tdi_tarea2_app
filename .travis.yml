@@ -5,17 +5,17 @@ rvm:
 - 2.3.0
 env:
 - DB=postgresql
-before_script:
-- psql -c 'create database tdi2_production;' -U postgres
-- psql -c 'create database tdi2_development;' -U postgres
-- psql -c 'create database tdi2_testing;' -U postgres
-script:
-- bundle exec rake db:create --trace
-- bundle exec rake db:migrate --trace
-- RAILS_ENV=test bundle exec rake db:create --trace
-- RAILS_ENV=test bundle exec rake db:migrate --trace
-- bundle exec rake db:test:prepare
-bundler_args: "--binstubs=./bundler_stubs"
+# before_script:
+# - psql -c 'create database tdi2_production;' -U postgres
+# - psql -c 'create database tdi2_development;' -U postgres
+# - psql -c 'create database tdi2_testing;' -U postgres
+# script:
+# - bundle exec rake db:create --trace
+# - bundle exec rake db:migrate --trace
+# - RAILS_ENV=test bundle exec rake db:create --trace
+# - RAILS_ENV=test bundle exec rake db:migrate --trace
+# - bundle exec rake db:test:prepare
+# bundler_args: "--binstubs=./bundler_stubs"
 deploy:
   provider: heroku
   api_key: 9d9abffb-f042-44d9-8bd9-c48a43f51c96
@@ -23,3 +23,4 @@ deploy:
   on:
     repo: maldunate/tdi_tarea2_app
     branch: master
+after_success: coveralls
