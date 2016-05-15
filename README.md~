@@ -1,0 +1,16 @@
+## **TAREA INTEGRACION 2 [Gonzalo Jara]**
+
+#### VERSION: 1.0.2
+
+### **BADGES**
+
+_Estado del Build (Travis)_ [![Build Status](https://travis-ci.org/ggjara/tarea2gonzalojara.svg?branch=master)](https://travis-ci.org/ggjara/tarea2gonzalojara)
+
+_Cobertura Alcanzada (Coveralls)_ [![Coverage Status](https://coveralls.io/repos/github/ggjara/tarea2gonzalojara/badge.svg?branch=master)](https://coveralls.io/github/ggjara/tarea2gonzalojara?branch=master)
+
+### **FEATURES**
+_90-100% Tests Unitarios de Código Propio_
+
+_Travis Integrado_
+
+_Deploy por Herokyu a través de Travis_
