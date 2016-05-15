@@ -3,7 +3,7 @@ class ApiController < ApplicationController
 require 'instagram'
 require 'sinatra'
 
-	def findTag
+	def buscarTag
 		if(params[:tag] && params[:access_token] && params[:tag].is_a?(String) && params[:access_token].is_a?(String) )
 			tag = params[:tag]
 			access_token = params[:access_token]
