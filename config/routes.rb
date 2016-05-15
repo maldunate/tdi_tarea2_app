@@ -53,5 +53,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  match '/instagram/tag/buscar'=> 'api#buscarTag', via: :post
+  match '/instagram/tag/buscar'=> 'api#findTag', via: :post
 end
