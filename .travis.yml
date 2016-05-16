@@ -1,6 +1,6 @@
 language: ruby
-services:
-- postgresql
+#services:
+#- postgresql
 rvm:
 - 2.3.0
 #env:
