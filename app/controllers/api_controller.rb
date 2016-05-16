@@ -1,7 +1,11 @@
+require 'httparty'
+require 'instagram'
+#require 'sinatra'
+
 class ApiController < ApplicationController
 
-require 'instagram'
-require 'sinatra'
+
+
 
 	def buscarTag
 		if(params[:tag] && params[:access_token] && params[:tag].is_a?(String) && params[:access_token].is_a?(String) )
@@ -52,25 +56,27 @@ require 'sinatra'
 			arrayResponse= Array.new
 			postsObtained = response["data"]
 
-			postsObtained.each do |post|
-				if post["type"]=="image"
-					hash = {
-					tags: post["tags"],
-					username: post["user"]["username"],
-					likes: post["likes"]["count"].to_i,
-					url: post["images"]["standard_resolution"]["url"].to_s,
-					caption: post["caption"]["text"].to_s 
-				}
-				arrayResponse.append(hash)
-				elsif post["type"]=="video"
-					hash = {
-					tags: post["tags"],
-					username: post["user"]["username"],
-					likes: post["likes"]["count"].to_i,
-					url: post["images"]["standard_resolution"]["url"].to_s,
-					caption: post["caption"]["text"].to_s 
-				}
-				arrayResponse.append(hash)
+			if postsObtained != []
+				postsObtained.each do |post|
+					if post["type"]=="image"
+						hash = {
+						tags: post["tags"],
+						username: post["user"]["username"],
+						likes: post["likes"]["count"].to_i,
+						url: post["images"]["standard_resolution"]["url"].to_s,
+						caption: post["caption"]["text"].to_s 
+					}
+					arrayResponse.append(hash)
+					elsif post["type"]=="video"
+						hash = {
+						tags: post["tags"],
+						username: post["user"]["username"],
+						likes: post["likes"]["count"].to_i,
+						url: post["images"]["standard_resolution"]["url"].to_s,
+						caption: post["caption"]["text"].to_s 
+					}
+					arrayResponse.append(hash)
+					end
 				end
 			end
 			return arrayResponse
