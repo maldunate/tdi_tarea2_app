@@ -61,7 +61,6 @@
         0,
         null,
         0,
-        null,
         0,
         0,
         0,
@@ -134,7 +133,7 @@
         null
       ]
     },
-    "timestamp": 1463375673
+    "timestamp": 1463376725
   },
   "Unknown Test Framework": {
     "coverage": {
