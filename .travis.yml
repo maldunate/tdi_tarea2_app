@@ -1,6 +1,6 @@
 language: ruby
-services:
-- postgresql
+#services:
+#- postgresql
 rvm:
 - 2.3.0
 #env:
@@ -16,7 +16,7 @@ rvm:
 #- RAILS_ENV=test bundle exec rake db:migrate --trace
 #- bundle exec rake db:test:prepare
 #- bundle exec rake db:test_with_coveralls
-bundler_args: "--binstubs=./bundler_stubs"
+#bundler_args: "--binstubs=./bundler_stubs"
 deploy:
   provider: heroku
   api_key: 9d9abffb-f042-44d9-8bd9-c48a43f51c96
